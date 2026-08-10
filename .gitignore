@@ -1,0 +1,22 @@
+# local user context
+unsaved.config.md
+unsaved-notes/
+scratch/
+
+# secrets
+.env
+.env.*
+*.key
+*.pem
+*.token
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
