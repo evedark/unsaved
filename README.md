@@ -118,6 +118,8 @@ status: complete | partial
 
 ## Scripts
 
+Run these from the skill folder (`~/.claude/skills/unsaved`), or pass the full path to the script. Claude resolves the path on its own when it uses the skill.
+
 Instagram public embed:
 
 ```bash

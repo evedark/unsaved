@@ -18,7 +18,11 @@ It is not a bookmark manager. It reads the media, extracts the idea, connects it
 | Instagram reel without speech | Public embed endpoint | $0 | Caption and visual content only |
 | Instagram reel with speech | Optional paid provider, bring your own key | Paid | Off by default. Never invent speech |
 | YouTube with captions | yt-dlp subtitles | $0 | Manual captions first, auto captions second |
-| YouTube without captions | `scripts/transcribe_url.py` with faster-whisper | $0 | Local transcription, slower |
+| YouTube without captions | `<skill-dir>/scripts/transcribe_url.py` with faster-whisper | $0 | Local transcription, slower |
+
+## Skill folder
+
+The helper scripts live inside this skill, not in the user's project. `<skill-dir>` below means the folder that contains this `SKILL.md`, usually `~/.claude/skills/unsaved`. Resolve it to an absolute path before running a script. Output folders like `./scratch/` stay relative to the user's current project.
 
 ## Workflow
 
@@ -36,7 +40,7 @@ It is not a bookmark manager. It reads the media, extracts the idea, connects it
 For carousels and images, use the public embed script:
 
 ```bash
-python scripts/ig_embed.py "<instagram-url-or-shortcode>" "./scratch/ig"
+python "<skill-dir>/scripts/ig_embed.py" "<instagram-url-or-shortcode>" "./scratch/ig"
 ```
 
 The script prints the caption, downloads `slide01.jpg`, `slide02.jpg`, and so on, and creates `contact.jpg` for visual review.
@@ -73,7 +77,7 @@ Use fixed subtitle languages. Do not use wildcard subtitle patterns because they
 If no caption file exists, transcribe locally:
 
 ```bash
-python scripts/transcribe_url.py "<youtube-url>" --model medium
+python "<skill-dir>/scripts/transcribe_url.py" "<youtube-url>" --model medium
 ```
 
 Use the transcript to synthesize. Do not paste a raw transcript into the note unless the user asks for it.
